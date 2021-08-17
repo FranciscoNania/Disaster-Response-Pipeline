@@ -9,8 +9,8 @@ def load_data(messages_filepath, categories_filepath):
     load messages dataset and merge both datasets
     
     INPUTS
-    messages_filepath - messages.csv file
-    categories_filepath - categories.csv file
+    messages_filepath - disaster_messages.csv file
+    categories_filepath - disaster_categories.csv file
 
     '''
     

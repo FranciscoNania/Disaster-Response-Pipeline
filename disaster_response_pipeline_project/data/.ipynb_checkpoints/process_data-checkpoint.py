@@ -7,9 +7,10 @@ from sqlalchemy import create_engine
 def load_data(messages_filepath, categories_filepath):
     '''
     load messages dataset and merge both datasets
+    
     INPUTS
-    messages_filepath - messages.csv file
-    categories_filepath - categories.csv file
+    messages_filepath - disaster_messages.csv file
+    categories_filepath - disaster_categories.csv file
 
     '''
     
@@ -26,6 +27,9 @@ def clean_data(df):
     convert category values to binary
     replace original categories column
     drop duplicates
+    
+    INPUT
+    df - dataframe
     
     '''
     # create a dataframe of the 36 individual category columns
@@ -59,7 +63,11 @@ def clean_data(df):
 
 def save_data(df, database_filename):
     '''
+    Save the clean dataset into an sqlite database
     
+    INPUT
+    df - cleaned dataframe
+    database_filename - 'ETLPipeline'
     '''
     engine = create_engine('sqlite:///DisasterResponse.db')
     df.to_sql(database_filename, engine, index=False)
