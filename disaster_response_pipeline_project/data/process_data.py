@@ -10,14 +10,14 @@ def load_data(messages_filepath, categories_filepath):
     
     INPUTS
     messages_filepath - disaster_messages.csv file
-    categories_filepath - disaster_categories.csv file
+    categories_filepath - categories.csv file
 
     '''
     
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
-    messages.merge(categories)
-    pass
+    df = messages.merge(categories)
+    return df
 
 
 def clean_data(df):
@@ -58,7 +58,7 @@ def clean_data(df):
     # drop duplicates
     df = df.drop_duplicates()
     
-    pass
+    return df
 
 
 def save_data(df, database_filename):
@@ -71,18 +71,17 @@ def save_data(df, database_filename):
     '''
     engine = create_engine('sqlite:///DisasterResponse.db')
     df.to_sql(database_filename, engine, index=False)
-    pass  
+     
 
 
 def main():
     if len(sys.argv) == 4:
 
         messages_filepath, categories_filepath, database_filepath = sys.argv[1:]
-
         print('Loading data...\n    MESSAGES: {}\n    CATEGORIES: {}'
               .format(messages_filepath, categories_filepath))
         df = load_data(messages_filepath, categories_filepath)
-
+        #print(df)
         print('Cleaning data...')
         df = clean_data(df)
         
