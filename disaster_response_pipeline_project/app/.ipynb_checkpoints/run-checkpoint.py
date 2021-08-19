@@ -32,7 +32,7 @@ engine = create_engine(os.path.join(r'sqlite:///..',database_name))
 df = pd.read_sql_table('ETLPipeline', engine)
 
 # load model
-model = joblib.load('..\model/classifier.pkl')
+model = joblib.load('classifier.pkl')
 
 
 # index webpage displays cool visuals and receives user input text for model
