@@ -29,13 +29,10 @@ def load_data(database_filepath):
     INPUT
     database_filepath
     '''
-    #engine = create_engine(os.path.join(r'sqlite:///..',database_filepath))
-    #df = pd.read_sql_table('ETLPipeline',engine)
-    #df = df.drop(['child_alone'],axis=1)
-    #df['related']=df['related'].map(lambda x: 1 if x == 2 else x)
+    #engine = create_engine(os.path.join(r'sqlite:///..',database_name))
+    #df = pd.read_sql_table('disasterResponse',engine)
     engine = create_engine('sqlite:///' + database_filepath)
-    #table_name = os.path.basename(database_filepath).replace(".db","") + "_table"
-    df = pd.read_sql_table('ETLPipeline',engine)
+    df = pd.read_sql_table('disasterResponse',engine)
     
     #Remove child alone as it has all zeros only
     df = df.drop(['child_alone'],axis=1)
@@ -46,10 +43,8 @@ def load_data(database_filepath):
     
     X = df['message']
     y = df.iloc[:,4:]
-    
-    #print(X)
-    #print(y.columns)
-    category_names = y.columns # This will be used for visualization purpose
+
+    category_names = y.columns
     return X, y, category_names
     
 
@@ -74,23 +69,20 @@ def build_model():
     model = Pipeline([
         ('vect', CountVectorizer(tokenizer=tokenize)),
         ('tfidf', TfidfTransformer()),
-        ('clf', MultiOutputClassifier(RandomForestClassifier()))
+        ('clf', MultiOutputClassifier(SGDClassifier()))
         ])
     return model
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
-    #X_train, X_test, y_train, y_test = train_test_split(X, y)
-    #model.fit(X_train, y_train)
-    Y_pred = model.predict(X_test)
-    print(classification_report(Y_test, Y_pred, target_names=Y_test.columns))
     
-    pass
+    Y_pred = model.predict(X_test)
+    print(classification_report(Y_test, Y_pred, target_names=category_names))
 
 
 def save_model(model, model_filepath):
-    pickle.dump(model, open( 'classifier.pkl', 'wb' ) )
-    pass
+    pickle.dump(model, open( model_filepath, 'wb' ) )
+    
 
 
 def main():
