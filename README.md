@@ -18,11 +18,11 @@
 </pre>
 ├── app
 
-│   ├── run.py                           Flask file that runs app
+│   ├── run.py Flask file that runs app
 
 │   └── templates
 
-│       ├── go.html                      Classification result page of web app
+│       ├── go.html  &nbsp;&nbsp;&nbsp;                    Classification result page of web app
 
 │       └── master.html                  Main page of web app
 
