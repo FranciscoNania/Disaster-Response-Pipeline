@@ -22,7 +22,7 @@
 
 │   └── templates
 
-│       ├── go.html  &nbsp;&nbsp;&nbsp;                    Classification result page of web app
+│       ├── go.html  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   Classification result page of web app
 
 │       └── master.html                  Main page of web app
 
