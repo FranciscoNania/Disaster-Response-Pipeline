@@ -16,37 +16,7 @@
 
 ## Files Description
 
-├── app
-
-│   ├── run.py 
-
-│   └── templates
-
-│       ├── go.html  
-
-│       └── master.html                  
-
-├── data
-
-│   ├── disaster_categories.csv          
-
-│   ├── disaster_messages.csv            
-
-│   └── process_data.py                  
-
-├── models
-
-│   ├── train_classifier.py              
-
-│   └── classifier.pkl                   
-
-|   
-
-|── requirements.txt                     
-
-|
-
-└── README.md
+<body><div><p style="font-size:10.5pt"><span style="font-family:'Courier New'">├── app</span></p><p style="font-size:10.5pt"><span style="font-family:'Courier New'">│</span><span style="font-family:'Courier New'; -aw-import:spaces">&nbsp;&nbsp; </span><span style="font-family:'Courier New'">├── run.py</span><span style="font-family:'Courier New'; -aw-import:spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'"># Flask file that runs app</span></p><p style="font-size:10.5pt"><span style="font-family:'Courier New'">│</span><span style="font-family:'Courier New'; -aw-import:spaces">&nbsp;&nbsp; </span><span style="font-family:'Courier New'">└── templates</span></p><p style="font-size:10.5pt"><span style="font-family:'Courier New'">│</span><span style="font-family:'Courier New'; -aw-import:spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'">├── go.html</span><span style="font-family:'Courier New'; -aw-import:spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'"># Classification result page of web app</span></p><p style="font-size:10.5pt"><span style="font-family:'Courier New'">│</span><span style="font-family:'Courier New'; -aw-import:spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'">└── master.html</span><span style="font-family:'Courier New'; -aw-import:spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'"># Main page of web app</span></p><p style="font-size:10.5pt"><span style="font-family:'Courier New'">├── data</span></p><p style="font-size:10.5pt"><span style="font-family:'Courier New'">│</span><span style="font-family:'Courier New'; -aw-import:spaces">&nbsp;&nbsp; </span><span style="font-family:'Courier New'">├── disaster_categories.csv</span><span style="font-family:'Courier New'; -aw-import:spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'"># Dataset including all the categories</span></p><p style="font-size:10.5pt"><span style="font-family:'Courier New'">│</span><span style="font-family:'Courier New'; -aw-import:spaces">&nbsp;&nbsp; </span><span style="font-family:'Courier New'">├── disaster_messages.csv</span><span style="font-family:'Courier New'; -aw-import:spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'"># Dataset including all the messages</span></p><p style="font-size:10.5pt"><span style="font-family:'Courier New'">│</span><span style="font-family:'Courier New'; -aw-import:spaces">&nbsp;&nbsp; </span><span style="font-family:'Courier New'">└── process_data.py</span><span style="font-family:'Courier New'; -aw-import:spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'"># Data cleaning</span></p><p style="font-size:10.5pt"><span style="font-family:'Courier New'">├── models</span></p><p style="font-size:10.5pt"><span style="font-family:'Courier New'">│</span><span style="font-family:'Courier New'; -aw-import:spaces">&nbsp;&nbsp; </span><span style="font-family:'Courier New'">├── train_classifier.py</span><span style="font-family:'Courier New'; -aw-import:spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'"># Train ML model</span></p><p style="font-size:10.5pt"><span style="font-family:'Courier New'">│</span><span style="font-family:'Courier New'; -aw-import:spaces">&nbsp;&nbsp; </span><span style="font-family:'Courier New'">└── classifier.pkl</span><span style="font-family:'Courier New'; -aw-import:spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'"># pikkle file of model</span></p><p style="font-size:10.5pt"><span style="font-family:'Courier New'">|</span></p><p style="font-size:10.5pt"><span style="font-family:'Courier New'">|── requirements.txt</span><span style="font-family:'Courier New'; -aw-import:spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'"># contains versions of all libraries used.</span></p><p style="font-size:10.5pt"><span style="font-family:'Courier New'">|</span></p><p style="font-size:10.5pt"><span style="font-family:'Courier New'">└── README.md</span></p></div></body>
 
 ## Project Motivation
 The main purpose of this project was developing my skills as a Data Scientist
