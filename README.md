@@ -15,6 +15,7 @@
 3. Go to http://0.0.0.0:3001/
 
 ## Files Description
+</pre>
 ├── app
 
 │   ├── run.py                           Flask file that runs app
@@ -46,7 +47,7 @@
 |
 
 └── README.md
-
+</pre>
 ## Project Motivation
 The main purpose of this project was developing my skills as a Data Scientist
 
