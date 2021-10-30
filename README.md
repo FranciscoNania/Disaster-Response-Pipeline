@@ -15,39 +15,39 @@
 3. Go to http://0.0.0.0:3001/
 
 ## Files Description
-</pre>
+
 ├── app
 
-│   ├── run.py Flask file that runs app
+│   ├── run.py 
 
 │   └── templates
 
-│       ├── go.html  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   Classification result page of web app
+│       ├── go.html  
 
-│       └── master.html                  Main page of web app
+│       └── master.html                  
 
 ├── data
 
-│   ├── disaster_categories.csv          Dataset including all the categories
+│   ├── disaster_categories.csv          
 
-│   ├── disaster_messages.csv            Dataset including all the messages
+│   ├── disaster_messages.csv            
 
-│   └── process_data.py                  Data cleaning
+│   └── process_data.py                  
 
 ├── models
 
-│   ├── train_classifier.py              Train ML model
+│   ├── train_classifier.py              
 
-│   └── classifier.pkl                   pikkle file of model
+│   └── classifier.pkl                   
 
 |   
 
-|── requirements.txt                     contains versions of all libraries used.
+|── requirements.txt                     
 
 |
 
 └── README.md
-</pre>
+
 ## Project Motivation
 The main purpose of this project was developing my skills as a Data Scientist
 
