@@ -1,0 +1,3 @@
+docstrings
+gridsearchcv
+print results for each

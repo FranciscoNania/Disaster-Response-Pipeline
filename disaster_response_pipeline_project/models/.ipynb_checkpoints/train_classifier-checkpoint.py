@@ -27,20 +27,18 @@ url_regex = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-
 def load_data(database_filepath):
     '''
     INPUT
-    database_filepath
+    database_filepath - location of the database
+    
+    OUTPUT
+    returns dataframe split into X and Y and a list of column names
+    X - 'message' column of database
+    Y - every other column
+    category_names - list of column names from Y dataframe
     '''
-    #engine = create_engine(os.path.join(r'sqlite:///..',database_name))
-    #df = pd.read_sql_table('disasterResponse',engine)
+
     engine = create_engine('sqlite:///' + database_filepath)
     df = pd.read_sql_table('disasterResponse',engine)
-    
-    #Remove child alone as it has all zeros only
-    df = df.drop(['child_alone'],axis=1)
-    
-    # Given value 2 in the related field are neglible so it could be error. Replacing 2 with 1 to consider it a valid response.
-    # Alternatively, we could have assumed it to be 0 also. In the absence of information I have gone with majority class.
-    df['related']=df['related'].map(lambda x: 1 if x == 2 else x)
-    
+        
     X = df['message']
     y = df.iloc[:,4:]
 
@@ -49,6 +47,15 @@ def load_data(database_filepath):
     
 
 def tokenize(text):
+    '''
+    INPUT
+    text - a string that will be tokenized
+    
+    OUTPUT
+    Returns a tokenized version of the original string
+    clean_tokens - tokenized version
+    
+    '''
     
     detected_urls = re.findall(url_regex, text)
     for url in detected_urls:
@@ -64,23 +71,51 @@ def tokenize(text):
 
     return clean_tokens
 
-
+#Note - While choosing a classifier for this project, I tried using RandomForest, Kneighbors and the SGD.
+#       Only the SGD was able to generate a pickle file below 100mb, so I decided to apply the gridsearchcv
+#       only to this classifier to search for the best combination of parameters
 def build_model():
-    model = Pipeline([
+    '''
+    OUTPUT
+    Returns a pipeline based for a SGD Classifier model
+    
+    model - SGD Classifier model
+    '''
+    pipeline3 = Pipeline([
         ('vect', CountVectorizer(tokenizer=tokenize)),
         ('tfidf', TfidfTransformer()),
         ('clf', MultiOutputClassifier(SGDClassifier()))
         ])
+    
+    parameters = [{'vect__max_df': (0.5, 0.75, 1.0),
+                   'clf__estimator__alpha': (0.00001, 0.000001),
+                   'clf__estimator__penalty': ('l2', 'elasticnet')
+                  }]
+    
+    model = GridSearchCV(pipeline3, parameters)
+
     return model
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
+    '''
+    INPUT
+    model - pipelined model
+    X_test - X df split into test and train
+    Y_test - Y df split into test and train
+    category_names - names of categories of Y df
+    
+    OUTPUT
+    Report the f1 score, precision and recall for each output category of the dataset.
+    '''
     
     Y_pred = model.predict(X_test)
-    print(classification_report(Y_test, Y_pred, target_names=category_names))
 
 
 def save_model(model, model_filepath):
+    '''
+    saves the modle in pickle format
+    '''
     pickle.dump(model, open( model_filepath, 'wb' ) )
     
 

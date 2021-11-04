@@ -61,6 +61,15 @@ def clean_data(df):
     # drop duplicates
     df = df.drop_duplicates()
     
+    #The empty 'child_alone' column conflicts with the chosen classifier later on, so I dropped it.
+    df = df.drop(['child_alone'],axis=1)
+
+    #Some values on dataframe are not binary, so a small lambda function to change '2' into '1'. 
+    #Those values could have been dropped as well, but it seems they are supposed to be '1'
+    df['related'] = df['related'].map(lambda x: 1 if x == 2 else x)
+    
+
+    
     return df
 
 
@@ -73,7 +82,7 @@ def save_data(df, database_filename):
     database_filename - 'ETLPipeline'
     '''
     engine = create_engine('sqlite:///'+ database_filename)
-    df.to_sql('disasterResponse', engine, index=False)
+    df.to_sql('disasterResponse', engine, index=False, if_exists = 'replace')
      
 
 
